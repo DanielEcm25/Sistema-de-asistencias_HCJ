@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="primero">
+<head>
+    <title>Gestión Estudiantes</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../index.css"/>
+</head>
+<body>
+    <header>
+        <h1>Gestión de Estudiantes</h1>
+        <a href="index.html" class="logo">←</a>
+    </header>
+    <main>
+        <section id="estudiantes" class="card">
+        <h2>Registrar Estudiante</h2>
+        <form>
+            <div class="grid">
+            <input type="text" placeholder="Nombre completo" required>
+            <input type="text" placeholder="Tipo de documento" required>
+            <input type="text" placeholder="Número de documento" required>
+            </div>
+            <button type="submit">Registrar</button>
+        </form>
+        </section>
+        <section id="ConsultarEstudiantes" class="card">
+            <h2>Consultar Estudiantes</h2>
+            <form>
+            <div class="grid">
+                <input type="text" placeholder="Tipo de documento" required>
+                <input type="text" placeholder="Número de documento" required>
+            </div>
+            <button type="submit">Consultar</button>
+            <div class="resultado">
+                <p><strong>Nombre del estudiante:</strong></p>
+            </div>
+            </form>
+        </section>
+
+        <section id="ModificaEstudiantes" class="card">
+        <h2>Modificar Estudiante</h2>
+        <form>
+            <div class="grid">
+            <input type="text" placeholder="Tipo de documento" required>
+            <input type="text" placeholder="Número de documento" required>
+            </div>
+            <button type="submit">Consultar</button>
+            <div class="grid"> 
+            <input type="text" placeholder="Nuevo nombre" required>
+            <input type="text" placeholder="Nuevo Tipo de documento" required>
+            </div>
+            <button type="submit">Modificar</button>
+        </form>
+        </section>
+    </main>
+</body>
+</html>
