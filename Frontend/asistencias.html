@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="asignaturas.css">
+    <title>Asignaturas</title>
+</head>
+<body>
+    <h1>Asistencias</h1>
+    <form>
+        <fieldset>
+            <h2>Crear lista de asistencias</h2>
+            <label for="semestre">Semestre</label><br><br>
+            <input type="text" id="semestrecrear" placeholder="Ej: 2024-1 2024-2" required autocomplete="off">
+            <br><br>
+            <label for="grupo">Grupo</label><br><br>
+            <input type="text" id="grupocrear" placeholder="Ej: 401M o 402M" required autocomplete="off">
+            <br><br>
+            <label for="codigo">Codigo</label><br><br>
+            <input type="text" id="codigocrear" placeholder="12345" required autocomplete="off">
+            <br><br>
+            <label for="fecha">Fecha</label><br><br>
+            <input type="text" id="fechacrear" placeholder="11/Oct/2025" required autocomplete="off">
+            <br><br>
+            <label for="Horadeinicio">Hora de Inicio</label><br><br>
+            <input type="text" id="horainicrear" placeholder="11:00 am" required autocomplete="off">
+            <br><br>
+            <input type="submit" value="Crear" id="crearLista" onclick="crearlista(event)">
+        </fieldset>
+    </form>
+    <form>
+        <fieldset>
+            <h2>Llenar Asistencia</h2>
+            <label for="codigo">Codigo</label><br><br>
+            <input type="text" id="codigollenar" placeholder="12345" required autocomplete="off">
+            <br><br>
+            <label for="Horadeinicio">Hora de Inicio</label><br><br>
+            <input type="text" id="horainillenar" placeholder="11:00 am" required autocomplete="off">
+            <br><br>
+            <label for="fecha">Fecha</label><br><br>
+            <input type="text" id="fechallenar" placeholder="11/Oct/2025" required autocomplete="off">
+            <br><br>
+            <input type="submit" value="Buscar" id="buscarlista" onclick="buscarlista(event)">
+            <br><br>
+            <div id="contenedor-lista">
+                <table id="tablaAsisLlenar" border="1" style="width:100%; text-align:center;">
+                    <thead>
+                        <tr>
+                            <th>Tipo de Documento</th>
+                            <th>Número de Documento</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <input type="submit" value="Llenar" id="llenarlista" onclick="lleanarlista(event)">
+            <br><br>
+        </fieldset>
+    </form>
+    <form>
+        <fieldset>
+            <h2>Modificar Asistencia</h2>
+            <label for="codigo">Codigo</label><br><br>
+            <input type="text" id="codigomod" placeholder="12345" required autocomplete="off">
+            <br><br>
+            <label for="semestre">Semestre</label><br><br>
+            <input type="text" id="semestremod" placeholder="Ej: 2024-1 2024-2" required autocomplete="off">
+            <br><br>
+            <label for="grupo">Grupo</label><br><br>
+            <input type="text" id="grupomod" placeholder="Ej: 401M o 402M" required autocomplete="off">
+            <br><br>
+            <label for="Horadeinicio">Hora de Inicio</label><br><br>
+            <input type="text" id="horainimod" placeholder="11:00 am" required autocomplete="off">
+            <br><br>
+            <label for="fecha">Fecha</label><br><br>
+            <input type="text" id="fechamod" placeholder="11/Oct/2025" required autocomplete="off">
+            <br><br>
+            <label for="tipoDocEst">Tipo de documento</label><br><br>
+            <select>
+                <option>CC</option>
+                <option>TI</option>
+            </select>
+            <br><br>
+            <label for="numDocEst">Número de documento</label><br><br>
+            <input type="text" id="numDocMod" placeholder="Ej: 12345678" required autocomplete="off">
+            <br><br>
+            <input type="submit" value="Buscar" id="buscarlista" onclick="buscarlista(event)">
+            <br><br>
+            <div id="lista_modificar">
+                <table id="tablaAsisMod" border="1" style="width:100%; text-align:center;">
+                    <thead>
+                        <tr>
+                            <th>Tipo de Documento</th>
+                            <th>Número de Documento</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <input type="submit" value="Modificar" id="modificarAsistencia" onclick="modificarAsistencia(event)">
+            <br><br>
+        </fieldset>
+    </form>
+    <form>
+        <fieldset>
+            <h2>Consultar Asistencia</h2>
+            <label for="codigo">Codigo</label><br><br>
+            <input type="text" id="codigocon" placeholder="12345" required autocomplete="off">
+            <br><br>
+            <label for="semestre">Semestre</label><br><br>
+            <input type="text" id="semestrecon" placeholder="Ej: 2024-1 2024-2" required autocomplete="off">
+            <br><br>
+            <label for="grupo">Grupo</label><br><br>
+            <input type="text" id="grupocon" placeholder="Ej: 401M o 402M" required autocomplete="off">
+            <br><br>
+            <label for="Horadeinicio">Hora de Inicio</label><br><br>
+            <input type="text" id="horainicon" placeholder="11:00 am" required autocomplete="off">
+            <br><br>
+            <label for="fecha">Fecha</label><br><br>
+            <input type="text" id="fechacon" placeholder="11/Oct/2025" required autocomplete="off">
+            <br><br>
+            <input type="submit" value="consultar" id="consultarAsistencia" onclick="consultarAsistencia(event)">
+            <br><br>
+            <div id="lista_consultar">
+                <table id="tablaAsisCon" border="1" style="width:100%; text-align:center;">
+                    <thead>
+                        <tr>
+                            <th>Tipo de Documento</th>
+                            <th>Número de Documento</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>
