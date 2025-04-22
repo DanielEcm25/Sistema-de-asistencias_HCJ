@@ -1,56 +1,60 @@
 <!DOCTYPE html>
-<html lang="primero">
+<html lang="es">
 <head>
-    <title>Gestión Estudiantes</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../index.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="funcionalidades.js"></script>
+    <link rel="stylesheet" href="estudiantes.css">
+    <title>Estudiantes</title>
 </head>
 <body>
-    <header>
-        <h1>Gestión de Estudiantes</h1>
-        <a href="index.html" class="logo">←</a>
-    </header>
-    <main>
-        <section id="estudiantes" class="card">
-        <h2>Registrar Estudiante</h2>
-        <form>
-            <div class="grid">
-            <input type="text" placeholder="Nombre completo" required>
-            <input type="text" placeholder="Tipo de documento" required>
-            <input type="text" placeholder="Número de documento" required>
-            </div>
-            <button type="submit">Registrar</button>
-        </form>
-        </section>
-        <section id="ConsultarEstudiantes" class="card">
-            <h2>Consultar Estudiantes</h2>
-            <form>
-            <div class="grid">
-                <input type="text" placeholder="Tipo de documento" required>
-                <input type="text" placeholder="Número de documento" required>
-            </div>
-            <button type="submit">Consultar</button>
-            <div class="resultado">
-                <p><strong>Nombre del estudiante:</strong></p>
-            </div>
-            </form>
-        </section>
+    <h1>Estudiantes</h1>
+    <form>
+        <fieldset>
+            <h2>Registrar Estudiantes</h2>
+            <label for="nombreEst">Nombre del estudiante</label><br><br>
+            <input type="text" id="nombreEst" placeholder="Nombre completo" required autocomplete="off">
+            <br><br>
+            <label for="tipoDocEst">Tipo de documento</label><br><br>
+            <input type="text" id="tipoDocEst" placeholder="CC, TI" required autocomplete="off">
+            <br><br>
+            <label for="numDocEst">Número de documento</label><br><br>
+            <input type="text" id="numDocEst" placeholder="Ej: 12345678" required autocomplete="off">
+            <br><br>
+            <input type="submit" value="Registrar" id="registrarEst" onclick="registrarEstudiante(event)">
+        </fieldset>
 
-        <section id="ModificaEstudiantes" class="card">
-        <h2>Modificar Estudiante</h2>
-        <form>
-            <div class="grid">
-            <input type="text" placeholder="Tipo de documento" required>
-            <input type="text" placeholder="Número de documento" required>
-            </div>
-            <button type="submit">Consultar</button>
-            <div class="grid"> 
-            <input type="text" placeholder="Nuevo nombre" required>
-            <input type="text" placeholder="Nuevo Tipo de documento" required>
-            </div>
-            <button type="submit">Modificar</button>
-        </form>
-        </section>
-    </main>
+        <fieldset>
+            <h2>Consultar Estudiante</h2>
+            <label for="tipoDocConsulta">Tipo de documento</label><br><br>
+            <input type="text" id="tipoDocConsulta" placeholder="CC, TI" required autocomplete="off">
+            <br><br>
+            <label for="numDocConsulta">Número de documento</label><br><br>
+            <input type="text" id="numDocConsulta" placeholder="Ej: 12345678" required autocomplete="off">
+            <br><br>
+            <input type="submit" value="Consultar" id="consultarEst" onclick="consultarEstudiante(event)">
+            <br><br>
+            <input type="text" placeholder="Aquí aparecerá el nombre del estudiante" id="NomEst" readonly autocomplete="off">
+        </fieldset>
+
+        <fieldset>
+            <h2>Modificar Estudiante</h2>
+            <label for="tipoDocMod">Tipo de documento</label><br><br>
+            <input type="text" id="tipoDocMod" placeholder="CC, TI" required autocomplete="off">
+            <br><br>
+            <label for="numDocMod">Número de documento</label><br><br>
+            <input type="text" id="numDocMod" placeholder="Ej: 12345678" required autocomplete="off">
+            <br><br>
+            <input type="submit" value="Buscar" id="buscarEst" onclick="buscarEstudiante(event)">
+            <br><br>
+            <label for="nuevoNombre">Nuevo nombre</label><br><br>
+            <input type="text" id="nuevoNombre" placeholder="Nuevo nombre" required autocomplete="off">
+            <br><br>
+            <label for="nuevoTipoDoc">Nuevo tipo de documento</label><br><br>
+            <input type="text" id="nuevoTipoDoc" placeholder="CC, TI" required autocomplete="off">
+            <br><br>
+            <input type="submit" value="Modificar" id="modificarEst" onclick="modificarEstudiante(event)">
+        </fieldset>
+    </form>
 </body>
 </html>

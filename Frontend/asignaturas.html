@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="asignaturas.css">
+    <title>Asignaturas</title>
+</head>
+<body>
+    <h1>Asignaturas</h1>
+    <form>
+        <fieldset>
+            <h2>Agregar Asignatura</h2>
+            <label for="nombreAsig">Nombre</label><br><br>
+            <input type="text" id="nombreAsig" placeholder="Nombre completo" required autocomplete="off">
+            <br><br>
+            <label for="codigo">Codigo</label><br><br>
+            <input type="text" id="codigo" placeholder="12345" required autocomplete="off">
+            <br><br>
+            <label for="creditos">Creditos</label><br><br>
+            <input type="text" id="numCre" placeholder="Ej: 1,2,3,4" required autocomplete="off">
+            <br><br>
+            <label for="grupo">Grupo</label><br><br>
+            <input type="text" id="grupo" placeholder="Ej: 401M o 402M" required autocomplete="off">
+            <br><br>
+            <label for="semestre">Semestre</label><br><br>
+            <input type="text" id="semestre" placeholder="Ej: 2024-1 2024-2" required autocomplete="off">
+            <br><br>
+            <input type="submit" value="Registrar" id="registrarAsig" onclick="registrarAsignatura(event)">
+        </fieldset>
+
+        <fieldset>
+            <h2>Consultar Asignatura</h2>
+            <label for="codConsulta">Codigo de la Asignatura</label><br><br>
+            <input type="text" id="tipoCodConsulta" placeholder="12345" required autocomplete="off">
+            <br><br>
+            <label for="semConsulta">Semestre</label><br><br>
+            <input type="text" id="semConsulta" placeholder="Ej: 2024-1 2024-2" required autocomplete="off">
+            <br><br>
+            <label for="secConsulta">Grupo</label><br><br>
+            <input type="text" id="secConsulta" placeholder="Ej: 401M o 402M" required autocomplete="off">
+            <br><br>
+            <input type="submit" value="Consultar" id="consultarAsig" onclick="consultarAsignatura(event)">
+            <br><br>
+            <input type="text" placeholder="Aquí aparecerá el nombre de la asignaura" id="NomAsig" readonly autocomplete="off">
+            <br><br>
+            <input type="text" placeholder="Aquí aparecerá los creditos de la asignaura" id="NomAsig" readonly autocomplete="off">
+        </fieldset>
+
+        <fieldset>
+            <h2>Modificar Asignatura</h2>
+            <label for="codConsulta">Codigo de la Asignatura</label><br><br>
+            <input type="text" id="tipoCodConsulta" placeholder="12345" required autocomplete="off">
+            <br><br>
+            <label for="semConsulta">Semestre</label><br><br>
+            <input type="text" id="semConsulta" placeholder="Ej: 2024-1 2024-2" required autocomplete="off">
+            <br><br>
+            <label for="secConsulta">Grupo</label><br><br>
+            <input type="text" id="secConsulta" placeholder="Ej: 401M o 402M" required autocomplete="off">
+            <br><br>
+            <input type="submit" value="Buscar" id="buscarAsig" onclick="buscarAsignatura(event)">
+            <br><br>
+            <label for="nuevoNombre">Nuevo nombre</label><br><br>
+            <input type="text" id="nuevoNombre" placeholder="Nuevo nombre" required autocomplete="off">
+            <br><br>
+            <label for="nuevosCreditos">Cantidad de creditos</label><br><br>
+            <input type="text" id="nuevosCreditos" placeholder="1,2,3,4" required autocomplete="off">
+            <br><br>
+            <input type="submit" value="Modificar" id="modificarAsig" onclick="modificarAsignatura(event)">
+        </fieldset>
+    </form>
+</body>
+</html>
