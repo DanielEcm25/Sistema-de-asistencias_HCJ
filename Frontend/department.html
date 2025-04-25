@@ -8,26 +8,26 @@
     <title>Departamento</title>
 </head>
 <body>
-    <header>
+    <header class="header_dp">
         <h1>Departamento</h1>
-        <div>
+        <div class="back_button">
             <a href="../index.html"> ⮐ Volver</a>
         </div>
     </header>
-    <form>
-        <fieldset>
-            <label for="consult">Nombre del departamento</label>
+    <form class="main_form">
+        <fieldset class="form_content">
+            <label class="information_item" for="consult">Nombre del departamento</label>
             <br>
             <br>
-            <input type="text" placeholder="Aquí aparecerá el nombre del depa" id="NomDep" readonly autocomplete="off">
-            <input type="submit" value="Consultar" id="consult" onclick="mostrar(event)">
+            <input class="text_box" type="text" placeholder="Aquí aparecerá el nombre del depa" id="NomDep" readonly autocomplete="off">
+            <input class="boton_form" type="submit" value="Consultar" id="consult" onclick="mostrar(event)">
         </fieldset>
-        <fieldset>
-            <label for="Modif">Modificar nombre del departamento</label>
+        <fieldset class="form_content">
+            <label class="information_item" for="Modif">Modificar nombre del departamento</label>
             <br>
             <br>
-            <input type="text" placeholder="Nuevo nombre del departamento" minlength="4" maxlength="50" id="NewDep" autocomplete="off">
-            <input type="submit" value="Modificar" id="Modif" onclick="Modify(event)">
+            <input class="text_box modif_textbox" type="text" placeholder="Nuevo nombre del departamento" minlength="4" maxlength="50" id="NewDep" autocomplete="off">
+            <input class="boton_form" type="submit" value="Modificar" id="Modif" onclick="Modify(event)">
         </fieldset>
     </form>
 </body>
