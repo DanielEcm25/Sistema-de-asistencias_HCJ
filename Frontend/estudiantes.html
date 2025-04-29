@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="funcionalidades.js"></script>
+    <script src="../js/estudiantes.js"></script>
     <link rel="stylesheet" href="../estilos css/estudiantes.css">
+    <link rel="icon" href="../imágenes/escudo-color.png" type="png">
     <title>Estudiantes</title>
 </head>
 <body>
@@ -21,7 +22,7 @@
             <input type="text" class="text_camp" id="nombreEst" placeholder="Nombre completo" required autocomplete="off" minlength="10" maxlength="100">
             <br><br>
             <label class="camp_info" for="tipoDocEst">Tipo de documento</label><br><br>
-            <select class="select_camp">
+            <select class="select_camp" id="tipoDocEst">
                 <option>TI</option>
                 <option>CC</option>
             </select>
