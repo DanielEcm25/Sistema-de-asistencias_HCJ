@@ -5,8 +5,8 @@ function registrarEstudiante(){
     event.preventDefault();
     let raw = JSON.stringify({
         "Nombre" : document.getElementById("nombreEst").value,
-        "TipoDoc" : document.getElementById("tipoDocEst").value,
-        "codigo" : document.getElementById("numDocEst").value
+        "Tipo_Documento" : document.getElementById("tipoDocEst").value,
+        "Codigo" : document.getElementById("numDocEst").value
     });
     let requestOptions = {
         method : "POST",
