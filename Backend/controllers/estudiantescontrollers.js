@@ -4,8 +4,8 @@ class EstudiantesController{
     consultar(req,res){
         try{
             let arreglo=[];
-            let myObj = {Nombre: "Daniel Esteban", Tipo_Dococumento: "CC", Codigo: "1077112696"};
-            let myObj2 = {Nombre: "Pedro Gónzales", Tipo_Dococumento: "CC", Codigo: "1037112636"};
+            let myObj = {Nombre: "Daniel Esteban", Tipo_Documento: "CC", Codigo: "1077112696"};
+            let myObj2 = {Nombre: "Pedro Gónzales", Tipo_Documento: "CC", Codigo: "1037112636"};
 
             arreglo.push (myObj);
             arreglo.push (myObj2);
