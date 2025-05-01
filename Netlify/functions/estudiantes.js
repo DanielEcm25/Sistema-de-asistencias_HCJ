@@ -9,6 +9,5 @@ app.use(cors());
 
 var router = express.Router();
 router.use ("/estudiantes",estudiantesroutes);
-
-var handler = app.use ("/.netlify/functions",router);
+app.use ("/",router);
 exports.handler = serverless (app);
