@@ -1,5 +1,9 @@
 {
   "dependencies": {
-    "firebase-admin": "^13.3.0"
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "firebase-admin": "^13.3.0",
+    "serverless": "^4.14.2",
+    "serverless-http": "^3.2.0"
   }
 }

@@ -19,10 +19,10 @@ class EstudiantesController{
     }
     ingresar(req,res){
         try{
-            const {Nombre, Tipo_Dococumento, Codigo} = req.body;
+            const {Nombre, Tipo_Documento, Codigo} = req.body;
             console.log ("Documento de identidad: " + Codigo);
             console.log ("Nombre: "+Nombre);
-            console.log ("Tipo de Documento: "+ Tipo_Dococumento);
+            console.log ("Tipo de Documento: "+ Tipo_Documento);
             res.status(200).send ("Funciono ok");
         }catch (err){
             res.status(500).send(err.message);

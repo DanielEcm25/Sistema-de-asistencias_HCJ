@@ -24,7 +24,7 @@ function cargar(resultado){
     var salida = "";
     var elemento = "";
     for (let vc in transformado){
-        elemento = "<br>Nombre: "+transformad[vc].Nombre;
+        elemento = "<br>Nombre: "+transformado[vc].Nombre;
         elemento = elemento + "<br>Tipo de documento: "+transformado[vc].TipoDoc;
         elemento = elemento + "<br>Código: "+transformado[vc].codigo;
         salida = salida + elemento + "<br><br>"
