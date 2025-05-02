@@ -1,5 +1,5 @@
 class EstudiantesController{
-    construct(){
+    constructor(){
     }
     consultar(req,res){
         try{

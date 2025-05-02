@@ -8,6 +8,6 @@ app.use(express.json());
 app.use(cors());
 
 var router = express.Router();
-router.use ("/estudiantes",estudiantesroutes);
+router.use ("/",estudiantesroutes);
 app.use ("/",router);
 exports.handler = serverless (app);
