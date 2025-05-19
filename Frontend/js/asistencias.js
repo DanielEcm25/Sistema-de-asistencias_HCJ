@@ -20,7 +20,7 @@ function crearlista(event) {
     redirect: "follow"
   };
 
-  fetch("https://tu-sitio.netlify.app/.netlify/functions/asistencias", requestOptions)
+  fetch("https://ejemplofirebase.netlify.app/.netlify/functions/asistencias", requestOptions)
     .then((response) => response.text())
     .then((result) => {
       console.log(result);

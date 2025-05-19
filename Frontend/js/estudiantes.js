@@ -18,7 +18,7 @@ function registrarEstudiante(event) {
       redirect: "follow"
     };
   
-    fetch("https://tu-sitio.netlify.app/.netlify/functions/estudiantes", requestOptions)
+    fetch("https://ejemplofirebase.netlify.app/.netlify/functions/estudiantes", requestOptions)
       .then((response) => response.text())
       .then((result) => {
         console.log(result);

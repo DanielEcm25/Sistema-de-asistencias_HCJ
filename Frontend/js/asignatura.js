@@ -20,7 +20,7 @@ function registrarAsignatura(event) {
       redirect: "follow"
     };
   
-    fetch("https://tu-sitio.netlify.app/.netlify/functions/asignaturas", requestOptions)
+    fetch("https://ejemplofirebase.netlify.app/.netlify/functions/asignaturas", requestOptions)
       .then((response) => response.text())
       .then((result) => {
         console.log(result);
