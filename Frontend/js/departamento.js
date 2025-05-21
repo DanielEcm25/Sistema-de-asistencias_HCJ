@@ -1,5 +1,13 @@
 // Mostrar Departamento
-function mostrar(event) {
+
+let nombreDepartamento = "Ingeniería de Sistemas";
+
+function mostrar(event){
+  if(event){
+    event.preventDefault();
+  }
+  document.getElementById("NomDep").value = nombreDepartamento;
+/**function mostrar(event) {
     event.preventDefault();
     
     fetch("https://ejemplofirebase.netlify.app/.netlify/functions/departamento")
@@ -11,13 +19,21 @@ function mostrar(event) {
         console.error(error);
         document.getElementById("NomDep").value = "Error al consultar";
       });
-  }
-  
+  }**/
+}
   // Modificar Departamento
-  function Modify(event) {
+function Modify(event) {
     event.preventDefault();
-    
-    const myHeaders = new Headers();
+    const nuevoNombre = document.getElementById("NewDep").value.trim();
+
+    if(nuevoNombre.length < 4 || nuevoNombre.length >50){
+      alert("El nuevo nombre debe tener entre 4 y 50 carácteres");
+      return;
+    }
+    nombreDepartamento = nuevoNombre;
+    document.getElementById("NewDep").value = "";
+
+    /*const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
   
     let raw = JSON.stringify({
@@ -41,5 +57,5 @@ function mostrar(event) {
       .catch((error) => {
         console.error(error);
         alert("Error al modificar departamento");
-      });
-  }
+      });*/
+}
