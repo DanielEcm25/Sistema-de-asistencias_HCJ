@@ -3,7 +3,7 @@ exports.consultar = async (req, res) => {
         const { codigo, grupo, semestre } = req.query;
         // Aquí va la lógica para consultar una asignatura específica
         res.json({
-            nombre: "Arquitectura de computadores la mejor asignatura del mundo",
+            nombre: "Arquitectura de computadoressssssS",
             codigo,
             grupo,
             semestre

@@ -28,7 +28,7 @@ function registrarEstudiante(event) {
     alert("El estudiante se registró con éxito")
 
     document.getElementById("nombreEst").value = "";
-    document.getElementById("tipoaDocEst").value = "";
+    document.getElementById("numDocEst").value = "";
     /*const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     let raw = JSON.stringify({
@@ -59,11 +59,11 @@ function registrarEstudiante(event) {
     event.preventDefault();
     
     const tipoDocumento = document.getElementById("tipoDocConsulta").value;
-    const numDocumento = document.getElementById("numDocConsulta").value.trim();
-    
+    const numeroDocumento = document.getElementById("numDocConsulta").value.trim();
+
     const estudiante = estudiantes.find(e => 
-        e.tipoDocumento === tipoDocumento && 
-        e.numDocumento === numDocumento
+        e.tipoDoc === tipoDocumento && 
+        e.numeroDocumento === numeroDocumento
     );
     document.getElementById("NomEst").value = estudiante ? estudiante.nombre : "No encontrado";
 
@@ -86,7 +86,7 @@ function registrarEstudiante(event) {
     const numeroDoc = document.getElementById("numDocMod").value;
     const estudiante = estudiantes.find(e => 
         e.tipoDoc === tipoDoc && 
-        e.numeroDoc === numeroDoc
+        e.numeroDocumento === numeroDoc
     );
     if (estudiante) {
         document.getElementById("NuevoNombre").value = estudiante.nombre;
@@ -120,18 +120,20 @@ function registrarEstudiante(event) {
     }
 
     const index = estudiantes.findIndex(e => 
-        e.tipoDocumento === tipoDocumento && 
+        e.tipoDoc === tipoDocumento && 
         e.numeroDocumento === numeroDocumento
     );
 
     if (index !== -1) {
         estudiantes[index].nombre = nuevoNombre;
-        estudiantes[index].tipoDocumento = nuevoTipoDoc;
+        estudiantes[index].tipoDoc = nuevoTipoDoc;
         alert("Estudiante modificado exitosamente");
     } else {
         alert("Estudiante no encontrado");
     }
-
+    document.getElementById("numDocMod").value = "";
+    document.getElementById("NuevoNombre").value = "";
+    
     /*const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     let raw = JSON.stringify({
@@ -194,7 +196,7 @@ function agregarEstudianteAsignatura(event) {
 
   const estudiante = estudiantes.find(e => 
         e.numeroDocumento === codigoEstudiante && 
-        e.tipoDocumento === tipoDocumento
+        e.tipoDoc === tipoDocumento
     );
     
     const asignatura = asignaturas.find(a => 
@@ -207,7 +209,7 @@ function agregarEstudianteAsignatura(event) {
         return;
     }
 
-    const yaRegistrado = estudiantesAsignaturas.some(ea => 
+    const yaRegistrado = estudiantesenAsignaturas.some(ea => 
         ea.codigoEstudiante === codigoEst && 
         ea.tipoDocumento === tipoDoc &&
         ea.codigoAsignatura === codigoAsign &&
