@@ -1,23 +1,47 @@
 // Registrar Estudiante en el Departamento
+
+let estudiantes = [];
+let asignaturas = [];
+
+let estudiantesenAsignaturas = [];
+
 function registrarEstudiante(event) {
     event.preventDefault();
     
-    const myHeaders = new Headers();
+    const nombre = document.getElementById("nombreEst").value.trim();
+    const tipoDoc = document.getElementById("tipoDocEst").value;
+    const numeroDocumento = document.getElementById("numDocEst").value.trim();
+    if(nombre.length < 10 || nombre.length>100){
+      alert("El nombre del estudiante debe tener entre 10 y 100 carácteres");
+      return;
+    }
+    if(numeroDocumento.length < 8 || numeroDocumento.length > 11){
+      alert("El número de documento debe tener solo entre 8 y 11 dígitos");
+      return;
+    }
+    const existe = estudiantes.some(e => e.tipoDoc === tipoDoc && e.numeroDocumento === numeroDocumento);
+    if(existe){
+      alert("Este estudiante ya está registrado");
+      return;
+    }
+    estudiantes.push({nombre,tipoDoc,numeroDocumento});
+    alert("El estudiante se registró con éxito")
+
+    document.getElementById("nombreEst").value = "";
+    document.getElementById("tipoaDocEst").value = "";
+    /*const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-  
     let raw = JSON.stringify({
       "nombre": document.getElementById("nombreEst").value,
       "tipoDocumento": document.getElementById("tipoDocEst").value,
       "numeroDocumento": document.getElementById("numDocEst").value
     });
-  
     let requestOptions = {
       method: "POST",
       headers: myHeaders,
       body: raw,
       redirect: "follow"
     };
-  
     fetch("https://ejemplofirebase.netlify.app/.netlify/functions/estudiantes", requestOptions)
       .then((response) => response.text())
       .then((result) => {
@@ -27,17 +51,23 @@ function registrarEstudiante(event) {
       .catch((error) => {
         console.error(error);
         alert("Error al registrar estudiante");
-      });
+      });*/
   }
   
   // Consultar Estudiante en el Departamento
   function consultarEstudiante(event) {
     event.preventDefault();
     
-    const tipoDoc = document.querySelector("#consultarEst ~ select").value;
-    const numDoc = document.getElementById("numDocConsulta").value;
-  
-    fetch(`https://tu-sitio.netlify.app/.netlify/functions/estudiantes?tipoDoc=${tipoDoc}&numDoc=${numDoc}`)
+    const tipoDocumento = document.getElementById("tipoDocConsulta").value;
+    const numDocumento = document.getElementById("numDocConsulta").value.trim();
+    
+    const estudiante = estudiantes.find(e => 
+        e.tipoDocumento === tipoDocumento && 
+        e.numDocumento === numDocumento
+    );
+    document.getElementById("NomEst").value = estudiante ? estudiante.nombre : "No encontrado";
+
+    /*fetch(`https://tu-sitio.netlify.app/.netlify/functions/estudiantes?tipoDoc=${tipoDoc}&numDoc=${numDoc}`)
       .then((response) => response.json())
       .then((result) => {
         document.getElementById("NomEst").value = result.nombre || "No encontrado";
@@ -45,7 +75,7 @@ function registrarEstudiante(event) {
       .catch((error) => {
         console.error(error);
         document.getElementById("NomEst").value = "Error al consultar";
-      });
+      });*/
   }
   
   // Buscar Estudiante para Modificar
@@ -53,9 +83,18 @@ function registrarEstudiante(event) {
     event.preventDefault();
     
     const tipoDoc = document.getElementById("tipoDocMod").value;
-    const numDoc = document.getElementById("numDocMod").value;
-  
-    fetch(`https://tu-sitio.netlify.app/.netlify/functions/estudiantes?tipoDoc=${tipoDoc}&numDoc=${numDoc}`)
+    const numeroDoc = document.getElementById("numDocMod").value;
+    const estudiante = estudiantes.find(e => 
+        e.tipoDoc === tipoDoc && 
+        e.numeroDoc === numeroDoc
+    );
+    if (estudiante) {
+        document.getElementById("NuevoNombre").value = estudiante.nombre;
+        document.getElementById("nuevoTipoDoc").value = estudiante.tipoDoc;
+    } else {
+        alert("Estudiante no encontrado");
+    }
+    /*fetch(`https://tu-sitio.netlify.app/.netlify/functions/estudiantes?tipoDoc=${tipoDoc}&numDoc=${numDoc}`)
       .then((response) => response.json())
       .then((result) => {
         document.getElementById("NuevoNombre").value = result.nombre || "";
@@ -63,30 +102,50 @@ function registrarEstudiante(event) {
       .catch((error) => {
         console.error(error);
         alert("Error al buscar estudiante");
-      });
+      });*/
   }
   
   // Modificar Estudiante
   function modificarEstudiante(event) {
     event.preventDefault();
     
-    const myHeaders = new Headers();
+    const tipoDocumento = document.getElementById("tipoDocMod").value;
+    const numeroDocumento = document.getElementById("numDocMod").value.trim();
+    const nuevoNombre = document.getElementById("NuevoNombre").value.trim();
+    const nuevoTipoDoc = document.getElementById("nuevoTipoDoc").value;
+
+    if (nuevoNombre.length < 10 || nuevoNombre.length > 100) {
+        alert("El nombre debe tener entre 10 y 100 caracteres");
+        return;
+    }
+
+    const index = estudiantes.findIndex(e => 
+        e.tipoDocumento === tipoDocumento && 
+        e.numeroDocumento === numeroDocumento
+    );
+
+    if (index !== -1) {
+        estudiantes[index].nombre = nuevoNombre;
+        estudiantes[index].tipoDocumento = nuevoTipoDoc;
+        alert("Estudiante modificado exitosamente");
+    } else {
+        alert("Estudiante no encontrado");
+    }
+
+    /*const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-  
     let raw = JSON.stringify({
       "tipoDocumento": document.getElementById("tipoDocMod").value,
       "numeroDocumento": document.getElementById("numDocMod").value,
       "nuevoNombre": document.getElementById("NuevoNombre").value,
       "nuevoTipoDoc": document.getElementById("nuevoTipoDoc").value
     });
-  
     let requestOptions = {
       method: "PUT",
       headers: myHeaders,
       body: raw,
       redirect: "follow"
     };
-  
     fetch("https://tu-sitio.netlify.app/.netlify/functions/estudiantes", requestOptions)
       .then((response) => response.text())
       .then((result) => {
@@ -96,7 +155,7 @@ function registrarEstudiante(event) {
       .catch((error) => {
         console.error(error);
         alert("Error al modificar estudiante");
-      });
+      });*/
   }
   // Consultar Asignatura (nueva función)
 function consultarAsignatura(event) {
@@ -106,7 +165,14 @@ function consultarAsignatura(event) {
   const grupo = document.getElementById("GrupoAsign").value;
   const semestre = document.getElementById("SemestreAsign").value;
 
-  fetch(`https://tu-sitio.netlify.app/.netlify/functions/asignaturas?codigo=${codigo}&grupo=${grupo}&semestre=${semestre}`)
+  const asignatura = asignaturas.find(a => 
+        a.codigo === codigo && 
+        a.grupo === grupo && 
+        a.semestre === parseInt(semestre)
+  );
+
+  document.getElementById("NombreAsign").value = asignatura ? asignatura.nombre : "No encontrada";
+  /*fetch(`https://tu-sitio.netlify.app/.netlify/functions/asignaturas?codigo=${codigo}&grupo=${grupo}&semestre=${semestre}`)
       .then(response => response.json())
       .then(data => {
           document.getElementById("NombreAsign").value = data.nombre || "No encontrada";
@@ -114,7 +180,7 @@ function consultarAsignatura(event) {
       .catch(error => {
           console.error("Error:", error);
           document.getElementById("NombreAsign").value = "Error al consultar";
-      });
+      });*/
 }
 
 // Agregar Estudiante a Asignatura 
@@ -126,7 +192,43 @@ function agregarEstudianteAsignatura(event) {
   const codigoAsign = document.getElementById("CodigoAsign").value;
   const grupoAsign = document.getElementById("GrupoAsign").value;
 
-  fetch("https://tu-sitio.netlify.app/.netlify/functions/asignaturas", {
+  const estudiante = estudiantes.find(e => 
+        e.numeroDocumento === codigoEstudiante && 
+        e.tipoDocumento === tipoDocumento
+    );
+    
+    const asignatura = asignaturas.find(a => 
+        a.codigo === codigoAsign && 
+        a.grupo === grupoAsign
+    );
+
+    if (!estudiante || !asignatura) {
+        alert("Estudiante o asignatura no encontrados");
+        return;
+    }
+
+    const yaRegistrado = estudiantesAsignaturas.some(ea => 
+        ea.codigoEstudiante === codigoEst && 
+        ea.tipoDocumento === tipoDoc &&
+        ea.codigoAsignatura === codigoAsign &&
+        ea.grupo === grupoAsign
+    );
+
+    if (yaRegistrado) {
+        alert("El estudiante ya está registrado en esta asignatura");
+        return;
+    }
+
+    estudiantesenAsignaturas.push({
+        codigoEst,
+        tipoDoc,
+        codigoAsign,
+        grupo: grupoAsign
+    });
+    
+    alert("Estudiante agregado a la asignatura exitosamente");
+    document.getElementById("CodEst").value = "";
+  /*fetch("https://tu-sitio.netlify.app/.netlify/functions/asignaturas", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -144,5 +246,5 @@ function agregarEstudianteAsignatura(event) {
   .catch(error => {
       console.error("Error:", error);
       alert("Error al agregar estudiante");
-  });
+  });*/
 }
