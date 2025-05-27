@@ -2,7 +2,7 @@
 function mostrar(event) {
   if (event) event.preventDefault();
 
-  fetch("/.netlify/functions/departamento") // ✅ ruta relativa (funciona en Netlify)
+  fetch("/.netlify/functions/departamento")
     .then((response) => response.json())
     .then((result) => {
       document.getElementById("NomDep").value = result.nombre || "No encontrado";
@@ -27,10 +27,10 @@ function Modify(event) {
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
-  const raw = JSON.stringify({ nuevoNombre }); // ✅ usamos el valor ya validado
+  const raw = JSON.stringify({ nuevoNombre });
 
   const requestOptions = {
-    method: "POST", // ✅ POST según tu backend (antes tenías PUT por error)
+    method: "POST", 
     headers: myHeaders,
     body: raw,
     redirect: "follow",
@@ -41,7 +41,7 @@ function Modify(event) {
     .then((result) => {
       console.log(result);
       alert("Departamento modificado exitosamente");
-      mostrar(); // actualiza el campo
+      mostrar();
       document.getElementById("NewDep").value = "";
     })
     .catch((error) => {
