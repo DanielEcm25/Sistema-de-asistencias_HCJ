@@ -1,5 +1,4 @@
-const admin = require('./firebaseAdmin');
-const db = admin.firestore();
+const db = require('./firebaseAdmin');
 const estudiantesRef = db.collection('Estudiantes');
 const asignaturasRef = db.collection('asignaturas');
 const estudiantesAsignaturasRef = db.collection('estudiantes_asignaturas');
@@ -69,7 +68,7 @@ class EstudiantesController {
                 nombre: nombre.trim(),
                 tipoDocumento,
                 numeroDocumento,
-                fechaRegistro: admin.firestore.FieldValue.serverTimestamp()
+                fechaRegistro: db.firestore.FieldValue.serverTimestamp()
             };
             
             await estudiantesRef.add(nuevoEstudiante);
