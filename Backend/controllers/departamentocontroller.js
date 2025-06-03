@@ -15,8 +15,8 @@ exports.consultar = async (req, res) => {
 exports.modificar = async (req, res) => {
     try {
         console.log("Body Recibido",req.body);
-        const { nuevoNombre } = req.body;
-        await db.collection("Departamento").doc("Informacion").set({ Nombre: nuevoNombre });
+        const { Nombre } = req.body;
+        await db.collection("Departamento").doc("Informacion").set({ Nombre });
         res.send("Departamento modificado exitosamente");
     } catch (error) {
         console.error("Error al modificar",error.message);

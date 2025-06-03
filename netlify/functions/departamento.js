@@ -7,7 +7,6 @@ var app = express();
 app.use(express.json());
 app.use(cors());
 
-var router = express.Router();
-router.use ("/departamento",departamentoroutes);
-var handler = app.use ('/.netlify/functions',router);
-exports.handler = serverless (app);
+app.use('/.netlify/functions/departamento', departamentoroutes);
+
+module.exports.handler = serverless(app);
