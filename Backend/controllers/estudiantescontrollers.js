@@ -1,6 +1,6 @@
 const admin = require('./firebaseAdmin');
 const db = admin.firestore();
-const estudiantesRef = db.collection('estudiantes');
+const estudiantesRef = db.collection('Estudiantes');
 const asignaturasRef = db.collection('asignaturas');
 const estudiantesAsignaturasRef = db.collection('estudiantes_asignaturas');
 
@@ -76,7 +76,7 @@ class EstudiantesController {
             
             res.status(201).json({ message: "Estudiante registrado exitosamente", data: nuevoEstudiante });
         } catch (error) {
-            console.error("Error en registrarEstudiante:", error);
+            console.error("Error en registrar Estudiante:", error);
             res.status(500).json({ error: error.message });
         }
     }
