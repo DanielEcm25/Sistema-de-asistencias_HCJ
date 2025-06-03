@@ -6,7 +6,7 @@ exports.consultar = async (req, res) => {
         if (!doc.exists) {
             return res.status(404).json({ error: "Departamento no encontrado" });
     }
-        res.json({ nombre: doc.data().nombre });
+        res.json({ nombre: doc.data().Nombre });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
