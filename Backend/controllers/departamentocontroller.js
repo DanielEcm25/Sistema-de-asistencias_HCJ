@@ -1,4 +1,4 @@
-const db = require("../../netlify/functions/firebase");
+const db = require("../../netlify/functions/departamento.js");
 
 exports.consultar = async (req, res) => {
     try {
