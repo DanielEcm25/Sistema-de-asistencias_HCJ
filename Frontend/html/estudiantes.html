@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../estilos css/estudiantes.css">
-    <script src="../js/estudiantes.js"></script>
     <link rel="icon" href="../imágenes/escudo-color.png" type="png">
     <title>Estudiantes</title>
 </head>
@@ -15,6 +14,8 @@
             <a href="../../index.html"> ⮐ Volver</a>
         </div>
     </header>
+
+    <!-- Registrar Estudiante -->
     <form class="form_st">
         <fieldset class="camp_form">
             <h2 class="camp_tittle">Registrar Estudiante en el Departamento</h2>
@@ -33,6 +34,8 @@
             <input type="submit" class="submit_button" value="Registrar" id="registrarEst" onclick="registrarEstudiante(event)">
         </fieldset>
     </form>
+
+    <!--Consultar Estudiante -->
     <form class="form_st">
         <fieldset class="camp_form">
             <h2 class="camp_tittle">Consultar Estudiante en el Departamento</h2>
@@ -50,6 +53,8 @@
             <input type="text" class="text_camp" placeholder="Aquí aparecerá el nombre del estudiante" id="NomEst" readonly autocomplete="off">
         </fieldset>
     </form>
+
+    <!--Modificar Estudiante -->
     <form class="form_st">
         <fieldset class="camp_form">
             <h2 class="camp_tittle">Modificar Estudiante en el Departamento</h2>
@@ -76,6 +81,8 @@
             <input type="submit" class="submit_button" value="Modificar" id="modificarEst" onclick="modificarEstudiante(event)">
         </fieldset>
     </form>
+
+    <!--Registrar Estudiante en Asignatura -->
     <form class="form_st">
         <fieldset class="camp_form">
             <h2 class="camp_tittle">Registrar Estudiante en Asignatura</h2>
@@ -105,25 +112,7 @@
             <input class="submit_button" type="submit" value="Agregar Estudiante" id="AddEstudiante" onclick="agregarEstudianteAsignatura(event)">
         </fieldset>
     </form>
-    <!--
-    <form>
-        <fieldset>
-            <h2>Consultar Estudiante de una Asignatura</h2>
-            <label for="CodigoAsignCons">Código de la Asignatura</label>
-            <input type="text" id="CodigoAsignCons" pattern="\d{12}" placeholder="Ej: 554433" minlength="6" maxlength="12" autocomplete="off" required>
-            <br><br>
-            <label for="GrupoAsignCons">Grupo de la Asignatura</label>
-            <input type="text" id="CodigoAsignCons" pattern="\d{6}" placeholder="Ej: 401M" minlength="3" maxlength="6" autocomplete="off" required>
-            <br><br>
-            <label for="SemestreAsignCons">Semestre de la Asignatura</label>
-            <input type="number" id="SemestreAsignCons" min="1" max="99" required oninput="this.value = this.value.slice(0, 2)">
-            <br><br>
-            <input type="submit" value="Consultar" id="consultAsign">
-            <input type="text" readonly id="NombreAsign" placeholder="Aquí aparecerá el nombre de la asignatura">
-        </fieldset>
-        <fieldset>
-        </fieldset>
-    </form>
--->
+
+    <script src="../js/estudiantes.js"></script>
 </body>
 </html>
