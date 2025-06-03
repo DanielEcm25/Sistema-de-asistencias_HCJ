@@ -27,7 +27,7 @@ async function registrarEstudiante(event) {
 
     document.getElementById("nombreEst").value = "";
     document.getElementById("numDocEst").value = "";
-    /*const myHeaders = new Headers();
+    const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     let raw = JSON.stringify({
       "nombre": document.getElementById("nombreEst").value,
@@ -49,7 +49,7 @@ async function registrarEstudiante(event) {
       .catch((error) => {
         console.error(error);
         alert("Error al registrar estudiante");
-      });*/
+      });
   }
   
   // Consultar Estudiante en el Departamento
@@ -131,46 +131,46 @@ async function registrarEstudiante(event) {
     document.getElementById("numDocMod").value = "";
     document.getElementById("NuevoNombre").value = "";
     
-    /*const myHeaders = new Headers();
+    const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     let raw = JSON.stringify({
-      "tipoDocumento": document.getElementById("tipoDocMod").value,
-      "numeroDocumento": document.getElementById("numDocMod").value,
-      "nuevoNombre": document.getElementById("NuevoNombre").value,
-      "nuevoTipoDoc": document.getElementById("nuevoTipoDoc").value
+        "tipoDocumento": document.getElementById("tipoDocMod").value,
+        "numeroDocumento": document.getElementById("numDocMod").value,
+        "nuevoNombre": document.getElementById("NuevoNombre").value,
+        "nuevoTipoDoc": document.getElementById("nuevoTipoDoc").value
     });
     let requestOptions = {
-      method: "PUT",
-      headers: myHeaders,
-      body: raw,
-      redirect: "follow"
+        method: "PUT",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow"
     };
     fetch("https://tu-sitio.netlify.app/.netlify/functions/estudiantes", requestOptions)
-      .then((response) => response.text())
-      .then((result) => {
+        .then((response) => response.text())
+        .then((result) => {
         console.log(result);
         alert("Estudiante modificado exitosamente");
-      })
-      .catch((error) => {
+        })
+        .catch((error) => {
         console.error(error);
         alert("Error al modificar estudiante");
-      });*/
-  }
+        });
+    }
   // Consultar Asignatura (nueva función)
 function consultarAsignatura(event) {
-  event.preventDefault();
-  
-  const codigo = document.getElementById("CodigoAsign").value;
-  const grupo = document.getElementById("GrupoAsign").value;
-  const semestre = document.getElementById("SemestreAsign").value;
+    event.preventDefault();
+    
+    const codigo = document.getElementById("CodigoAsign").value;
+    const grupo = document.getElementById("GrupoAsign").value;
+    const semestre = document.getElementById("SemestreAsign").value;
 
-  const asignatura = asignaturas.find(a => 
+    const asignatura = asignaturas.find(a => 
         a.codigo === codigo && 
         a.grupo === grupo && 
         a.semestre === parseInt(semestre)
-  );
+    );
 
-  document.getElementById("NombreAsign").value = asignatura ? asignatura.nombre : "No encontrada";
+    document.getElementById("NombreAsign").value = asignatura ? asignatura.nombre : "No encontrada";
   /*fetch(`https://tu-sitio.netlify.app/.netlify/functions/asignaturas?codigo=${codigo}&grupo=${grupo}&semestre=${semestre}`)
       .then(response => response.json())
       .then(data => {
@@ -184,14 +184,14 @@ function consultarAsignatura(event) {
 
 // Agregar Estudiante a Asignatura 
 function agregarEstudianteAsignatura(event) {
-  event.preventDefault();
+    event.preventDefault();
   
-  const codigoEst = document.getElementById("CodEst").value;
-  const tipoDoc = document.getElementById("TipoDoc").value;
-  const codigoAsign = document.getElementById("CodigoAsign").value;
-  const grupoAsign = document.getElementById("GrupoAsign").value;
+    const codigoEst = document.getElementById("CodEst").value;
+    const tipoDoc = document.getElementById("TipoDoc").value;
+    const codigoAsign = document.getElementById("CodigoAsign").value;
+    const grupoAsign = document.getElementById("GrupoAsign").value;
 
-  const estudiante = estudiantes.find(e => 
+    const estudiante = estudiantes.find(e => 
         e.numeroDocumento === codigoEstudiante && 
         e.tipoDoc === tipoDocumento
     );
