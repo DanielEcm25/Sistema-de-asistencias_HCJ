@@ -27,7 +27,7 @@ function Modify(event) {
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
-  const raw = JSON.stringify({ nuevoNombre });
+  const raw = JSON.stringify({ Nombre : nuevoNombre });
 
   const requestOptions = {
     method: "POST", 
