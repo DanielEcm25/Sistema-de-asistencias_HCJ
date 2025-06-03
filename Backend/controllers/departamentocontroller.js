@@ -1,4 +1,4 @@
-const db = require("../../netlify/functions/departamento.js");
+const db = require("./firebaseAdmin");
 
 exports.consultar = async (req, res) => {
     try {
