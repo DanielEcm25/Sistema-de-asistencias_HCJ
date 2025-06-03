@@ -14,10 +14,19 @@ exports.consultar = async (req, res) => {
 
 exports.modificar = async (req, res) => {
     try {
-        console.log("Body Recibido:", JSON.stringify(req.body));
+        // Fallback para Netlify Functions
+        if (!req.body || Object.keys(req.body).length === 0) {
+            if (req.rawBody) {
+                req.body = JSON.parse(Buffer.from(req.rawBody).toString("utf8"));
+            } else {
+                return res.status(400).json({ error: "Cuerpo vacío o no parseado" });
+            }
+        }
+
+        console.log("Body recibido:", req.body);
         const { Nombre } = req.body;
 
-        if (!Nombre || typeof Nombre !== "string") {
+        if (!Nombre || typeof Nombre !== "string" || Nombre.trim().length < 4) {
             return res.status(400).json({ error: "Nombre inválido o vacío" });
         }
 
