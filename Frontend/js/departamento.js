@@ -35,7 +35,7 @@ function Modify(event) {
     body: raw,
     redirect: "follow",
   };
-
+  console.log("Enviando:", raw);
   fetch("https://ejemplofirebase.netlify.app/.netlify/functions/departamento", requestOptions)
     .then((response) => response.text())
     .then((result) => {
