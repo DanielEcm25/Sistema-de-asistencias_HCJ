@@ -43,6 +43,7 @@ function Modify(event) {
       alert("Departamento modificado exitosamente");
       mostrar();
       document.getElementById("NewDep").value = "";
+      document.getElementById("NomDep").value = "";
     })
     .catch((error) => {
       console.error(error);
