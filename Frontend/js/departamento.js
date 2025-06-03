@@ -41,7 +41,6 @@ function Modify(event) {
     .then((result) => {
       console.log(result);
       alert("Departamento modificado exitosamente");
-      mostrar();
       document.getElementById("NewDep").value = "";
       document.getElementById("NomDep").value = "";
     })
