@@ -2,7 +2,7 @@ const db = require("../../netlify/functions/firebase");
 
 exports.consultar = async (req, res) => {
     try {
-        const doc = await db.collection("departamento").doc("info").get();
+        const doc = await db.collection("Departamento").doc("Informacion").get();
         if (!doc.exists) {
             return res.status(404).json({ error: "Departamento no encontrado" });
     }
@@ -15,7 +15,6 @@ exports.consultar = async (req, res) => {
 exports.modificar = async (req, res) => {
     try {
         const { nuevoNombre } = req.body;
-        await db.collection("departamento").doc("info").set({ nombre: nuevoNombre });
         await db.collection("departamento").doc("info").set({ nombre: nuevoNombre });
         res.send("Departamento modificado exitosamente");
     } catch (error) {
